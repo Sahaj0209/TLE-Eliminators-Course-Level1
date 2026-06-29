@@ -4,24 +4,26 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int n;
-        set<int> st;
-        vector<int> v(n);
-        for(int i=0;i<n;i++){
-            int temp;
-            cin>>temp;
-            v[i]=temp;
-            st.insert(temp);
+        long long n;
+        cin>>n;
+        vector<long long> v(n);
+        for(long long i=0;i<n;i++){
+            cin>>v[i];
         }
         sort(v.begin(),v.end());
-        if(v.size()==1) cout<<(v[0]*v[0])<<endl;
-        int prod = v[0]*v[1];
-        int j=2,k=3;
-        while(!(st.find(prod)!=st.end())){
-            prod=min(v[k]*v[j],prod);
-            j++;k++;
+        long long x = v[0]*v[n-1];
+        vector<long long> b;
+        for(long long i = 2;i*i<=x;i++){
+            if(x%i==0){
+                b.push_back(i);
+                if(x/i!=i){
+                    b.push_back(x/i);
+                }
+            }
         }
-        cout<<prod<<endl;
+        sort(b.begin(),b.end());
+        if(v==b) cout<<x<<endl;
+        else cout<<-1<<endl;
     }
     return 0;
 }
