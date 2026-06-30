@@ -6,12 +6,11 @@ int main(){
     while(t--){
         long long p;
         cin>>p;
-        long long a,b,c;
-        a=p%2;
-        b=p%3,c=p%4;
-        if(a==b) cout<<2<<" "<<3<<endl;
-        else if(a==c) cout<<2<<" "<<4<<endl;
-        else cout<<3<<" "<<4<<endl;
+        if(p%2==0){
+            cout<<2<<" "<<p<<endl;
+        } else {
+            cout<<2<<" "<<p-1<<endl;
+        }
     }
     return 0;
 }
